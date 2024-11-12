@@ -24,7 +24,7 @@ plotalot = True # whether to generate plots!
 ########################################
 
 # Load the NEXSCI archive:
-ncat = pd.read_csv('PS_2023.08.22_10.46.49_CLEANED_CONFIRMED_OR_VALIDATED_WITH_TSM.csv')
+ncat = pd.read_csv('./tables/PS_2023.08.22_10.46.49_CLEANED_CONFIRMED_OR_VALIDATED_WITH_TSM.csv')
 ncat['tsm'] = ncat.pl_tsm
 tran = np.logical_and(np.isfinite(ncat.pl_radjerr1 * ncat.pl_radjerr2), ncat.pl_orbsmax<5)
 values = np.vstack([np.log10(ncat.pl_orbper)[tran], np.log10(ncat.pl_rade[tran])])
@@ -32,11 +32,11 @@ masserr = np.abs(ncat.pl_bmasseerr1 * ncat.pl_bmasseerr2)**0.5
 sig = np.logical_and((ncat.pl_bmasse / masserr) > 5, tran)
 
 # Load JWST Targets:
-jwst = pd.read_csv('jwst_cycle_1-and-2_targets.csv')
+jwst = pd.read_csv('./tables/jwst_cycle_1-and-2_targets.csv')
 
 
 # Make a Fulton-esque KDE map:
-cat = pd.read_csv('cks_physical_merged.csv')
+cat = pd.read_csv('./tables/cks_physical_merged.csv')
 values = np.vstack([np.log10(cat.koi_period), np.log10(cat.iso_prad)])
 valid = np.logical_and(np.logical_and(np.logical_and(np.logical_and(np.logical_and(cat.koi_impact < 0.7, cat.koi_period < 100), cat.iso_srad < 2.1), cat.iso_steff > 4700), cat.iso_steff < 6500), np.isfinite(cat.iso_prad))
 values = values[:,valid]
@@ -128,7 +128,7 @@ if plotalot:
 
 
 # Now load in TOI catalog:
-toi = pd.read_csv('TOI2023-08-18_aggregate.csv')
+toi = pd.read_csv('./tables/TOI2023-08-18_aggregate.csv')
 valid_toi = np.logical_and(toi.tfopwg_disp=='PC', np.isfinite(toi.TSM))
 toi['RA_deg'] = toi.ra
 toi['Dec_deg'] = toi.dec
