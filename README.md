@@ -1,5 +1,7 @@
-# OrCAS_target_selection
-Target selection and prioritization for OrCAS Survey
+# OrCAS Sarget Selection script
+![alt text](https://github.com/iancrossfield/OrCAS_target_selection/blob/main/graphics/orcas_logo.png?raw=true)
+
+Target selection and prioritization for OrCAS Survey (cf. Crossfield et al. 2024)
 
 Steps to use:
 1) Install the KPF Exposure Time Calculator from https://github.com/California-Planet-Search/KPF-etc
