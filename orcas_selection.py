@@ -183,7 +183,7 @@ toi['jit_vsini'] = 0.16*toi.vsini**1.54
 toi['total_rv_noise'] = np.sqrt(kpf_rms**2 + toi.jit_gran_osc**2 + toi.jit_vsini**2)
 toi['nrv_to_5sig'] = np.vstack((((5/(toi.k_rv / toi.total_rv_noise))**2).values, 30*np.ones(len(toi)))).max(0)
 toi['kpf_tottime'] = toi.nrv_to_5sig * (toi.kpf_itime + 120.)
-toi['SUR'] = 1000*toi.weight / toi.kpf_tottime
+toi['metric'] = 1000*toi.weight / toi.kpf_tottime
 
 
 # Identify TOIs we manually decided to drop:
@@ -201,7 +201,7 @@ potential = np.logical_and(include, np.logical_and(np.isfinite(toi.kpf_tottime),
 
     
 # Rank and print the final sample:
-ai2 = np.argsort(toi.SUR[potential])
-print(toi.iloc[potential.values.nonzero()[0]][['toi', 'pl_rade', 'pl_orbper', 'Vmag', 'k_rv', 'TSM', 'SUR', 'kpf_tottime']].iloc[ai2[::-1]])
+ai2 = np.argsort(toi.metric[potential])
+print(toi.iloc[potential.values.nonzero()[0]][['toi', 'pl_rade', 'pl_orbper', 'Vmag', 'k_rv', 'TSM', 'metric', 'kpf_tottime']].iloc[ai2[::-1]])
 
 
