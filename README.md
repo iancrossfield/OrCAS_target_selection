@@ -1,4 +1,4 @@
-# OrCAS Sarget Selection script
+# OrCAS Target Selection script
 ![alt text](https://github.com/iancrossfield/OrCAS_target_selection/blob/main/graphics/orcas_logo.png?raw=true)
 
 Target selection and prioritization for OrCAS Survey (cf. Crossfield et al. 2024)
