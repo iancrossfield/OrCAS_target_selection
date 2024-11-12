@@ -10,7 +10,7 @@ Steps to use:
 4) Get an output printed to the screen that is something like:
 
 <pre>
-          toi   pl_rade  pl_orbper    Vmag      k_rv        TSM   kpf_tottime  SUR  
+          toi   pl_rade  pl_orbper    Vmag      k_rv        TSM   kpf_tottime  metric  
 291   1247.01  2.167310  15.923524   9.080  1.189575  33.501752  8.880000e+03 3.843099e+00  
 949   1799.01  1.627715   7.093853   8.980  0.936103  35.371515  8.430000e+03 3.297758e+00  
 736   1630.01  2.411880  12.055754   9.624  1.938917  42.407983  1.212000e+04 3.113258e+00  
@@ -23,4 +23,4 @@ Steps to use:
 ....
 </pre>
 
-Where the column "SUR" is the so-called "Sub-Neptune Underrepresentation Rate."
+Where the column "metric" is our final prioritization metric: the TSM times the SUR ("Sub-Neptune Underrepresentation Rate") divided by the total KPF observing time (kpf_tottime).
